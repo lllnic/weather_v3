@@ -5,6 +5,7 @@ import LoadingWeather from "../LoadingWeather/LoadingWeather";
 import WeatherError from "../WeatherError/WeatherError";
 import WeatherInfo from "../WeatherInfo/WeatherInfo";
 import "./weather.scss";
+import "./media.scss";
 
 const Weather = () => {
     const [city, setCity] = useState(undefined);
@@ -20,18 +21,25 @@ const Weather = () => {
         <div className="bg">
             <div className="container">
                 <div className="main">
-                    <form onSubmit={onSubmitHandler} className="form">
-                        <input
-                            type="text"
-                            placeholder="Введите название города"
-                            value={city}
-                            onChange={(e) => {
-                                setCity(e.target.value);
-                            }}
-                        />
-                        <button type="submit">Узнать погоду</button>
-                    </form>
-                    {loading ? (<LoadingWeather />) : ( weather && <WeatherInfo weather={weather} />)}
+                    <div className="blockForm">
+                        <form onSubmit={onSubmitHandler} className="form">
+                            <input
+                                type="text"
+                                placeholder="Введите название города"
+                                value={city}
+                                onChange={(e) => {
+                                    setCity(e.target.value);
+                                }}
+                            />
+                            <button type="submit">Узнать погоду</button>
+                        </form>
+                    </div>
+
+                    {loading ? (
+                        <LoadingWeather />
+                    ) : (
+                        weather && <WeatherInfo weather={weather} />
+                    )}
                     {/* {weather && <WeatherInfo weather={weather} />} */}
                     {error && <WeatherError error={error} />}
                 </div>
