@@ -1,0 +1,58 @@
+@media screen and (max-width: 1200px) {
+    .container {
+        width: 900px;
+    }
+}
+
+@media screen and (max-width: 992px) {
+    .container {
+        width: 768px;
+    }
+    .main {
+        width: 500px;
+    }
+    .component {
+        &_info {
+            margin-left: 30px;
+            p {
+                font-size: 25px;
+            }
+        }
+        p {
+            font-size: 25px;
+        }
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .container {
+        width: 576px;
+    }
+}
+
+@media screen and (max-width: 576px) {
+    .container {
+        width: 300px;
+    }
+    .main {
+        width: 300px;
+    }
+
+    .form {
+        width: 300px;
+        input {
+            width: 170px;
+            margin-left: 15px;
+        }
+    }
+    .component {
+        flex-direction: column;
+        align-items: center;
+        &_img {
+            img {
+                width: 150px;
+                height: 150px;
+            }
+        }
+    }
+}
